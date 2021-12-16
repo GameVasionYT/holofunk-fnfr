@@ -36,11 +36,11 @@ volume=1.0
 dfjk=false
 
 ; "Downscroll" makes arrows scroll down instead of up, and also moves some aspects of the UI around
-downscroll=true
+downscroll=false
 
 ; "Kade Input" disables anti-spam, but counts "Shit" inputs as misses
 ; NOTE: Currently unfinished, some aspects of this input mode still need to be implemented, like mash violations
-kadeInput=true
+kadeInput=false
 
 [Advanced]
 ; Show debug info on the screen
