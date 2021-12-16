@@ -151,7 +151,7 @@ return {
 			elseif weekNum == 5 then
 				trackNames = "\nLIONESS PRIDE"
 				menuDec = "CAMELLIA"
-				idkDesc = "GAMER PRODUCED (FT. VS CAMELLIA)"
+				idkDesc = "GAMER PRODUCER (FT. VS CAMELLIA)"
 				weekDesc = "Camellia's in the studio\nnow! With little time to\nspare, he has to get\nthese girls ready for\ntheir performance on the\nbig stage! Will he be\nable to, or are the oddss\ntoo big?"
 			elseif weekNum == 6 then
 				trackNames = "\nFRIDAY NIGHT\nCINDERELLA\nGANGIMARI\nHANDS"
