@@ -274,7 +274,9 @@ return {
 				love.graphics.translate(cam.x * 0.5, cam.y * 0.5)
 
 				walls:draw()
-				glow:draw()
+				if song == 3 then
+					glow:draw()
+				end
 				if song ~= 3 then
 					topBop:draw()
 					escalator:draw()
