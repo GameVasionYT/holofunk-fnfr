@@ -31,7 +31,7 @@ return graphics.newSprite(
 		{x = 1551, y = 456, width = 162, height = 153, offsetX = 0, offsetY = 0, offsetWidth = 0, offsetHeight = 0}, -- 55: right press0002
 		{x = 1551, y = 456, width = 162, height = 153, offsetX = 0, offsetY = 0, offsetWidth = 0, offsetHeight = 0}, -- 56: right press0003
 		{x = 1551, y = 456, width = 162, height = 153, offsetX = 0, offsetY = 0, offsetWidth = 0, offsetHeight = 0}, -- 57: right press0004
-		{x = 1551, y = 456, width = 162, height = 153, offsetX = 0, offsetY = 0, offsetWidth = 0, offsetHeight = 0}, -- 58: right press0005
+		{x = 1551, y = 456, width = 162, height = 153, offsetX = 0, offsetY = 0, offsetWidth = 0, offsetHeight = 0} -- 58: right press0005
 	},
 	{
 		["off"] = {start = 1, stop = 1, speed = 0, offsetX = 0, offsetY = 0},
