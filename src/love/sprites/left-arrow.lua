@@ -25,8 +25,6 @@ return graphics.newSprite(
 		{x = 1429, y = 231, width = 226, height = 217, offsetX = -5, offsetY = -5, offsetWidth = 236, offsetHeight = 227}, -- 20: left confirm0001
 		{x = 1429, y = 2, width = 233, height = 225, offsetX = -2, offsetY = -1, offsetWidth = 236, offsetHeight = 227}, -- 21: left confirm0002
 		{x = 1429, y = 2, width = 233, height = 225, offsetX = -2, offsetY = -1, offsetWidth = 236, offsetHeight = 227}, -- 22: left confirm0003
-		{x = 291, y = 392, width = 140, height = 142, offsetX = -3, offsetY = -3, offsetWidth = 146, offsetHeight = 149}, -- 6: left press0000
-		{x = 291, y = 392, width = 140, height = 142, offsetX = -3, offsetY = -3, offsetWidth = 146, offsetHeight = 149}, -- 7: left press0001
 		{x = 808, y = 462, width = 151, height = 143, offsetX = -5, offsetY = -4, offsetWidth = 162, offsetHeight = 153}, -- 23: left press0000
 		{x = 808, y = 462, width = 151, height = 143, offsetX = -5, offsetY = -4, offsetWidth = 162, offsetHeight = 153}, -- 24: left press0001
 		{x = 1903, y = 70, width = 50, height = 64, offsetX = 0, offsetY = 0, offsetWidth = 0, offsetHeight = 0}, -- 43: purple tail0000
