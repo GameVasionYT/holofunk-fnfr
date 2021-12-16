@@ -29,7 +29,7 @@ return graphics.newSprite(
 		{x = 808, y = 462, width = 151, height = 143, offsetX = -5, offsetY = -4, offsetWidth = 162, offsetHeight = 153}, -- 24: left press0001
 		{x = 1903, y = 70, width = 50, height = 64, offsetX = 0, offsetY = 0, offsetWidth = 0, offsetHeight = 0}, -- 43: purple tail0000
 		{x = 1385, y = 452, width = 162, height = 153, offsetX = 0, offsetY = 0, offsetWidth = 0, offsetHeight = 0}, -- 45: purple alone0000
-		{x = 1903, y = 186, width = 50, height = 44, offsetX = 0, offsetY = 0, offsetWidth = 0, offsetHeight = 0}, -- 44: purple hold0000
+		{x = 1903, y = 186, width = 50, height = 44, offsetX = 0, offsetY = 0, offsetWidth = 0, offsetHeight = 0} -- 44: purple hold0000
 	},
 	{
 		["off"] = {start = 1, stop = 1, speed = 0, offsetX = 0, offsetY = 0},
