@@ -61,16 +61,9 @@ return {
 	load = function(self)
 		weeks:load()
 
-		if song == 3 then
-			inst = love.audio.newSource("music/rus/rus-inst.ogg", "stream")
-			voices = love.audio.newSource("music/rus/rus-voices.ogg", "stream")
-		elseif song == 2 then
-			inst = love.audio.newSource("music/calli/rip-inst.ogg", "stream")
-			voices = love.audio.newSource("music/calli/rip-voices.ogg", "stream")
-		else
-			inst = love.audio.newSource("music/rus/rus-inst.ogg", "stream")
-			voices = love.audio.newSource("music/rus/rus-voices.ogg", "stream")
-		end
+		inst = love.audio.newSource("music/rus/Inst.ogg", "stream")
+		voices = love.audio.newSource("music/rus/Voices.ogg", "stream")
+
 
 		self:initUI()
 
@@ -80,13 +73,7 @@ return {
 	initUI = function(self)
 		weeks:initUI()
 
-		if song == 3 then
-			weeks:generateNotes(love.filesystem.load("charts/calli/callibattle" .. difficulty .. ".lua")())
-		elseif song == 2 then
-			weeks:generateNotes(love.filesystem.load("charts/calli/rip" .. difficulty .. ".lua")())
-		else
-			weeks:generateNotes(love.filesystem.load("charts/rus/weather-hackers" .. difficulty .. ".lua")())
-		end
+		weeks:generateNotes(love.filesystem.load("charts/rus/killer-scream" .. difficulty .. ".lua")())
 	end,
 
 	update = function(self, dt)

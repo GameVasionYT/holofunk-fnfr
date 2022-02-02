@@ -27,7 +27,8 @@ local weekNum = 1
 local songNum, songAppend
 local songDifficulty = 2
 
-local titleBG = graphics.newImage(love.graphics.newImage(graphics.imagePath("menu/storymenu/weekMenu")))
+local menuBGBottom = graphics.newImage(love.graphics.newImage(graphics.imagePath("menu/storymenu/weekMenuBottom")))
+local menuBGTop = graphics.newImage(love.graphics.newImage(graphics.imagePath("menu/storymenu/weekMenuTop")))
 
 local difficultyAnim = love.filesystem.load("sprites/menu/storymenu/difficulty.lua")()
 
@@ -35,8 +36,16 @@ local tutorial, week1, week2, week3, week4, week5, week6
 
 local tutorialart, week1art, week2art, week3art, week4art, week5art, week6art
 
-
-
+backColour = 1
+local backColours = {
+	{255, 252, 146},
+	{255, 203, 230},
+	{33, 218, 174},
+	{192, 194, 222},
+	{218, 88, 88},
+	{255, 138, 36},
+	{255, 122, 122},
+}
 
 local difficultyStrs = {
 	"-easy",
@@ -122,9 +131,6 @@ return {
 		
 	end,
 
-
-
-
 	update = function(self, dt)
 
 		function menuFunc()
@@ -145,17 +151,17 @@ return {
 				idkDesc = "SPOOKY HOLOEN MONTH"
 			elseif weekNum == 4 then
 				trackNames = "\nBOTAN\nLALION\nPOI"
-				menuDec = "VS SHISHIRO BOTAN"
+				menuDesc = "VS SHISHIRO BOTAN"
 				idkDesc = "WHITE LION"
 				weekDesc = "A confession is\ninterrupted by lioness\nmercernary \"Leone\", who\nwas hired to kill our\nheroine. But then it\nturns out she recognizes\nher as her friend and\nex-genmate..."
 			elseif weekNum == 5 then
 				trackNames = "\nLIONESS PRIDE"
-				menuDec = "CAMELLIA"
+				menuDesc = "CAMELLIA"
 				idkDesc = "GAMER PRODUCER (FT. VS CAMELLIA)"
 				weekDesc = "Camellia's in the studio\nnow! With little time to\nspare, he has to get\nthese girls ready for\ntheir performance on the\nbig stage! Will he be\nable to, or are the oddss\ntoo big?"
 			elseif weekNum == 6 then
 				trackNames = "\nFRIDAY NIGHT\nCINDERELLA\nGANGIMARI\nHANDS"
-				menuDec = "VS KIRYU COCO"
+				menuDesc = "VS KIRYU COCO"
 				idkDesc = "KIRYU CLAN FOREVER"
 				weekDesc = "Aloe resorts to\ncontacting the Yakuza to\nkeep her friend Botan's\nhistory as a merd from\nbeing discovered.\nFortunately, she knows\njust the right clan to\ncall."
 			elseif weekNum == 7 then
@@ -188,6 +194,12 @@ return {
 				else
 					weekNum = 1
 				end
+
+				if backColour ~= 7 then
+					backColour = backColour + 1
+				elseif backColour == 7 then
+					backColour = 1
+				end
 				menuFunc()
 
 			elseif input:pressed("up") then
@@ -198,6 +210,13 @@ return {
 				else
 					weekNum = 7
 				end
+
+				if backColour ~= 1 then
+					backColour = backColour - 1
+				elseif backColour == 1 then
+					backColour = 7
+				end
+
 				menuFunc()
 
 			elseif input:pressed("left") then
@@ -231,16 +250,18 @@ return {
 	end,
 
 	draw = function(self)
+		local curBackColour = backColours[backColour]
 		love.graphics.push()
 			love.graphics.translate(graphics.getWidth() / 2, graphics.getHeight() / 2)
-
-			titleBG:draw()
+			graphics.setColor(curBackColour[1] / 255, curBackColour[2] / 255, curBackColour[3] / 255)
+			menuBGTop:draw()
+			love.graphics.setColor(1, 1, 1)
+			menuBGBottom:draw()
 
 			love.graphics.push()
 				love.graphics.scale(cam.sizeX, cam.sizeY)
 
 				difficultyAnim:draw()
-
 
 				if weekNum == 1 then
 					tutorialart:draw()
@@ -360,7 +381,7 @@ return {
 					week6:draw()
 
 				end
-				
+
 				love.graphics.printf(menuDesc, -730, 75, 853, "center", nil, 1.8, 1.8)
 				love.graphics.printf("SONG LIST" .. trackNames, -825, 190, 853, "center", nil, 1.5, 1.5)
 				love.graphics.printf(weekDesc, -190, 190, 853, "center", nil, 0.85, 0.85)

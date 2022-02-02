@@ -68,7 +68,7 @@ local weekMeta = {
 		}
 	},
 	{
-		"Camellia",
+		"Botan + Aloe",
 		{
 			"Lioness Pride"
 		}
@@ -88,6 +88,18 @@ local weekMeta = {
 			"Hinotori",
 			"Fry Fry Party",
 			"Red And Black"
+		}
+	},
+	{
+		"Botan + Camellia",
+		{
+			"Lioness Pride"
+		}
+	},
+	{
+		"Rushia",
+		{
+			"Killer Scream"
 		}
 	}
 }

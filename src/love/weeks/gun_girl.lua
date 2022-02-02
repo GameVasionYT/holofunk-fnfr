@@ -19,7 +19,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 local song, difficulty
 
-local sky, city, cityWindows, behindTrain, street
+local sky, city, cityWindows, behindTrain, street, hololiveLogo
 local winColors, winColor
 
 return {
@@ -33,17 +33,17 @@ return {
 		camScale.x, camScale.y = 1, 1
 
 		winColors = {
-			{49, 162, 253}, -- Blue
-			{49, 253, 140}, -- Green
+			{253, 196, 62}, -- Orange
 			{251, 51, 245}, -- Magenta
-			{253, 69, 49}, -- Orange
-			{251, 166, 51}, -- Yellow
+			{235, 80, 33}, -- Weird Red
+			{33, 167, 235}, -- Light Blue
 		}
 		winColor = 1
 
 		sky = graphics.newImage(love.graphics.newImage(graphics.imagePath("week3/sky")))
 		city = graphics.newImage(love.graphics.newImage(graphics.imagePath("week3/city")))
 		cityWindows = graphics.newImage(love.graphics.newImage(graphics.imagePath("week3/city-windows")))
+		hololiveLogo = graphics.newImage(love.graphics.newImage(graphics.imagePath("week3/hololive")))
 		behindTrain = graphics.newImage(love.graphics.newImage(graphics.imagePath("week3/behind-train")))
 		street = graphics.newImage(love.graphics.newImage(graphics.imagePath("week3/street")))
 
@@ -68,14 +68,14 @@ return {
 		weeks:load()
 
 		if song == 3 then
-			inst = love.audio.newSource("music/week3/poi-inst.ogg", "stream")
-			voices = love.audio.newSource("music/week3/poi-voices.ogg", "stream")
+			inst = love.audio.newSource("music/week3/poi/Inst.ogg", "stream")
+			voices = love.audio.newSource("music/week3/poi/Voices.ogg", "stream")
 		elseif song == 2 then
-			inst = love.audio.newSource("music/week3/lalion-inst.ogg", "stream")
-			voices = love.audio.newSource("music/week3/lalion-voices.ogg", "stream")
+			inst = love.audio.newSource("music/week3/lalion/Inst.ogg", "stream")
+			voices = love.audio.newSource("music/week3/lalion/Voices.ogg", "stream")
 		else
-			inst = love.audio.newSource("music/week3/botan-inst.ogg", "stream")
-			voices = love.audio.newSource("music/week3/botan-voices.ogg", "stream")
+			inst = love.audio.newSource("music/week3/botan/Inst.ogg", "stream")
+			voices = love.audio.newSource("music/week3/botan/Voices.ogg", "stream")
 		end
 
 		self:initUI()
@@ -101,7 +101,7 @@ return {
 		if musicThres ~= oldMusicThres and math.fmod(absMusicTime, 240000 / bpm) < 100 then
 			winColor = winColor + 1
 
-			if winColor > 5 then
+			if winColor > 4 then
 				winColor = 1
 			end
 		end
@@ -157,6 +157,7 @@ return {
 				graphics.setColor(curWinColor[1] / 255, curWinColor[2] / 255, curWinColor[3] / 255)
 				cityWindows:draw()
 				graphics.setColor(1, 1, 1)
+				hololiveLogo:draw()
 			love.graphics.pop()
 			love.graphics.push()
 				love.graphics.translate(cam.x * 0.9, cam.y * 0.9)

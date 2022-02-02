@@ -35,6 +35,10 @@ volume=1.0
 ; Sets your arrow keybinds to DFJK
 dfjk=false
 
+; Play on left
+; NOTE: This is for Camellia songs ONLY
+playOnLeft=false
+
 ; "Downscroll" makes arrows scroll down instead of up, and also moves some aspects of the UI around
 downscroll=false
 
@@ -49,7 +53,7 @@ showDebug=false
 
 ; These variables are read by the game for internal purposes, don't edit these unless you want to risk losing your current settings!
 [Data]
-settingsVer=4-nx
+settingsVer=5-nx
 ]]) or (curOS ~= "Web" and [[
 ; Friday Night Funkin' Rewritten Settings
 
@@ -78,6 +82,10 @@ volume=1.0
 ; Sets your arrow keybinds to DFJK
 dfjk=false
 
+; Play on left
+; NOTE: This is for Camellia songs ONLY
+playOnLeft=false
+
 ; "Downscroll" makes arrows scroll down instead of up, and also moves some aspects of the UI around
 downscroll=false
 
@@ -92,7 +100,7 @@ showDebug=false
 
 ; These variables are read by the game for internal purposes, don't edit these unless you want to risk losing your current settings!
 [Data]
-settingsVer=4
+settingsVer=5
 ]])
 
 local settingsIni
@@ -106,7 +114,7 @@ if curOS == "NX" then
 	if love.filesystem.getInfo("settings.ini") then
 		settingsIni = ini.load("settings.ini")
 
-		if not settingsIni["Data"] or ini.readKey(settingsIni, "Data", "settingsVer") ~= "4-nx" then
+		if not settingsIni["Data"] or ini.readKey(settingsIni, "Data", "settingsVer") ~= "5-nx" then
 			love.filesystem.write("settings.ini", settingsStr)
 		end
 	else
@@ -129,6 +137,12 @@ if curOS == "NX" then
 		settings.dfjk = true
 	else
 		settings.dfjk = false
+	end
+
+	if ini.readKey(settingsIni, "Game", "playOnLeft") == "true" then
+		playOnLeft = true
+	else
+		playOnLeft = false
 	end
 
 	if ini.readKey(settingsIni, "Game", "downscroll") == "true" then
@@ -155,13 +169,14 @@ elseif curOS == "Web" then -- For love.js, we won't bother creating and reading 
 	settings.dfjk = false
 	settings.downscroll = false
 	settings.kadeInput = false
+	playOnLeft = false
 
 	settings.showDebug = false
 else
 	if love.filesystem.getInfo("settings.ini") then
 		settingsIni = ini.load("settings.ini")
 
-		if not settingsIni["Data"] or ini.readKey(settingsIni, "Data", "settingsVer") ~= "4" then
+		if not settingsIni["Data"] or ini.readKey(settingsIni, "Data", "settingsVer") ~= "5" then
 			love.window.showMessageBox("Warning", "The current settings file is outdated, and will now be reset.")
 
 			local success, message = love.filesystem.write("settings.ini", settingsStr)
@@ -220,6 +235,12 @@ else
 		settings.dfjk = true
 	else
 		settings.dfjk = false
+	end
+
+	if ini.readKey(settingsIni, "Game", "playOnLeft") == "true" then
+		playOnLeft = true
+	else
+		playOnLeft = false
 	end
 
 	if ini.readKey(settingsIni, "Game", "downscroll") == "true" then

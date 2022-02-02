@@ -43,8 +43,9 @@ function love.load()
 	menuWeek = require "states.menuWeek"
 	menuSelect = require "states.menuSelect"
 	menuFreeplay = require "states.menuFreeplay"
-	weeks = require "states.weeks"
-	weeksPixel = require "states.weeks-pixel"
+	weeks = require "states.weeks.weeks"
+	weeksPixel = require "states.weeks.weeks-pixel"
+	weekslor = require "states.weeks.weeksL"
 
 	-- Load substates
 	gameOver = require "substates.game-over"
@@ -56,11 +57,11 @@ function love.load()
 		require "weeks.calli",
 		require "weeks.shark",
 		require "weeks.gun_girl",
-		require "weeks.camelliaweek",
+		require "weeks.botanAloe",
 		require "weeks.week4",
 		require "weeks.week5",
-		require "weeks.rus",
-		require "weeks.bob"
+		require "weeks.botanCamellia",
+		require "weeks.rus"
 	}
 
 	-- LÖVE init
