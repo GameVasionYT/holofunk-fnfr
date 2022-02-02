@@ -87,12 +87,12 @@ switch: lovefile
 	@rm -rf build/switch
 	@mkdir -p build/switch/switch/funkin-rewritten
 
-	@nacptool --create "Friday Night Funkin' Rewritten" "Luigi25, Clothing Hanger, and GameVasion" "$(shell cat version.txt)" build/switch/funkin-rewritten.nacp
+	@@C:/devkitPro/tools/bin/nacptool.exe --create "Friday Night Funkin' Rewritten" "Luigi25, Clothing Hanger, and GameVasion" "$(shell cat version.txt)" build/switch/funkin-rewritten.nacp
 
 	@mkdir build/switch/romfs
 	@cp build/lovefile/funkin-rewritten.love build/switch/romfs/game.love
 
-	@elf2nro resources/switch/love.elf build/switch/switch/funkin-rewritten/holofunk-rewritten.nro --icon=resources/switch/icon.jpg --nacp=build/switch/funkin-rewritten.nacp --romfsdir=build/switch/romfs
+	@@C:/devkitPro/tools/bin/elf2nro.exe resources/switch/love.elf build/switch/switch/funkin-rewritten/holofunk-rewritten.nro --icon=resources/switch/icon.jpg --nacp=build/switch/funkin-rewritten.nacp --romfsdir=build/switch/romfs
 
 	@rm -r build/switch/romfs
 	@rm build/switch/funkin-rewritten.nacp
